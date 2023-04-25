@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>YT Fashion</title>
+    <style>
+      h1, h2, h3, h4{
+        text-align: center;
+      }
+      .banner {
+        width: 100%;
+        height: 786px;
+        object-fit: cover;
+        /* display: none; */
+      }
+      .intro, span {
+        /* color: rgb(200, 70, 100);
+        font-style: italic; */
+        text-align: center;
+        padding: 30px;
+      }
+
+      .about_thankyou {
+        text-align: center;
+      }
+      #container{
+        max-width: 80%;
+        margin: 0 auto;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <header></header>
+    </div>
+    <h1>Summer Collections</h1>
+    <div style="text-align:center">
+          <button>Shop Now</button>
+    </div>
+    <img class="banner" src="https://careers-website.mouharimouhame1.repl.co/static/banner1.jpg" >
+    <div id=container>
+    <p class="intro"> 
+      <span>Order Above $200, Get Free Shipping</span> |
+      <span>100% Money Back</span> |
+      <span>Discount For Members </span> 
+    </p>
+
+
+    <h1> - OUR SPECIAL CATEGORY - </h1>
+
+    <h4>Explore Oure Brand</h4>
+    <h2>POPULAR PRODUCTS</h2>
+    <br>
+    
+    <div style="text-align:center">
+    <button> SHOP NEW ARRIVALS </button>
+    </div>
+    <br>
+    <br>
+
+    <h3> ABOUT FASHION </h3>
+    <p> A Portion of your purchases goes towards supporting different causes,
+    from helping families in need in Africa, to providing support for cancer patients
+    and those affected by mental illnesses and more. With your help, we're making a
+    difference in the world, one fashion statement at a time and we cannot thank you enought.</p>
+
+    <p class=about_thankyou>Yours Truly / Thank You!</p>
+     </div>  
+    
+    <script>
+      var slineIndex=0;
+      carousel();
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("banner");
+      for (i = 0; i < x.length; =i++){
+        x[i].style.display = "none";     
+      }
+      slineIndex++;
+      if (slineIndex > x.length) {slineIndex =1}
+      x[slineIndex-1].style.display = "block";
+      setTimeout(carousel, 5000);
+    }
+
+    </script>
+  </body>
+</html>
