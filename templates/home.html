@@ -3,10 +3,10 @@
 <html>
   <head>
     <title>YT Fashion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <style>
-      h1, h2, h3, h4{
-        text-align: center;
-      }
       .banner {
         width: 100%;
         height: 786px;
@@ -14,60 +14,65 @@
         /* display: none; */
       }
       .intro, span {
-        /* color: rgb(200, 70, 100);
-        font-style: italic; */
-        text-align: center;
         padding: 30px;
       }
-
-      .about_thankyou {
-        text-align: center;
+      .product-img img{
+        width:400px;
+        height: 400px;
       }
-      #container{
-        max-width: 80%;
-        margin: 0 auto;
-      }
-
     </style>
   </head>
   <body>
     <div>
       <header></header>
     </div>
-    <h1>Summer Collections</h1>
-    <div style="text-align:center">
-          <button>Shop Now</button>
+
+    <h1 class="text-center mt-5" >Summer Collections</h1>
+    <div class="text-center">
+          <button class="btn btn-dark btn-lg mb-3">Shop Now</button>
     </div>
-    <img class="banner" src="https://careers-website.mouharimouhame1.repl.co/static/banner1.jpg" >
-    <div id=container>
-    <p class="intro"> 
+    <img class="img-fluid" class="banner" src="https://careers-website.mouharimouhame1.repl.co/static/banner1.jpg" >
+    <div>
+    <p class="text-center mb-3"> 
       <span>Order Above $200, Get Free Shipping</span> |
       <span>100% Money Back</span> |
       <span>Discount For Members </span> 
     </p>
+    <div class="container">
 
+    <h1 class="text-center mt-4 mb-4"> - OUR SPECIAL CATEGORY - </h1>
+    <div class='row'>
+      {% for category in prodcategory %}
+        {% include 'product_category.html' %}
+      {% endfor %}
+      
+    </div>
 
-    <h1> - OUR SPECIAL CATEGORY - </h1>
-
-    <h4>Explore Oure Brand</h4>
-    <h2>POPULAR PRODUCTS</h2>
+    <h6 class="text-center">Explore Our Brand</h6>
+    <h2 class="text-center">POPULAR PRODUCTS</h2>
     <br>
+    <div class='row'>
+      {% for product in products %}
+        {% include 'productitem.html'%}
+      {% endfor %}
+    </div>
     
     <div style="text-align:center">
-    <button> SHOP NEW ARRIVALS </button>
+    <button class="btn btn-dark btn-sm"> SHOP NEW ARRIVALS </button>
     </div>
     <br>
     <br>
-
-    <h3> ABOUT FASHION </h3>
-    <p> A Portion of your purchases goes towards supporting different causes,
+    <div class="text-center">
+    <h3 > ABOUT FASHION </h3>
+    <p class="lead"> A Portion of your purchases goes towards supporting different causes,
     from helping families in need in Africa, to providing support for cancer patients
     and those affected by mental illnesses and more. With your help, we're making a
     difference in the world, one fashion statement at a time and we cannot thank you enought.</p>
-
-    <p class=about_thankyou>Yours Truly / Thank You!</p>
+    </div>
+    <p class="text-center">Yours Truly / Thank You!</p>
      </div>  
-    
+          
+    </div>
     <script>
       var slineIndex=0;
       carousel();
