@@ -19,6 +19,8 @@ def list_products():
 @app.route("/product/<id>")
 def show_product(id):
   product = load_prod_from_db(id)
+  # if not job:
+  #   return "Not Found", 404
   return jsonify(product)
 
 
