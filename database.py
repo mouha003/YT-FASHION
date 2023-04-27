@@ -1,7 +1,8 @@
 from sqlalchemy import create_engine, text
 import os
 
-db_conn_string = os.environ['DB_CONNECTION_STRING']
+# db_conn_string = os.environ['DB_CONNECTION_STRING']
+db_conn_string = os.getenv('DB_CONNECTION_STRING')
 engine = create_engine( db_conn_string, 
   connect_args={
     "ssl": {
