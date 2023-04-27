@@ -18,3 +18,13 @@ def load_jobs_from_db(products):
     for row in result.all():
       prods.append(row._asdict())
     return prods
+
+def load_prod_from_db(id):
+  query = "select * from products where id ="+id
+  with engine.connect() as conn:
+    result = conn.execute(text(query))
+    rows = result.all()
+    if len(rows) == 0:
+      return None
+    else:
+      return rows[0]._asdict()
