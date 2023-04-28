@@ -1,5 +1,5 @@
-from flask import Flask, render_template, jsonify
-from database import load_jobs_from_db, load_prod_from_db
+from flask import Flask, render_template, jsonify, request
+from database import load_jobs_from_db, load_prod_from_db, add_product_to_db
 
 app = Flask(__name__)
 
@@ -22,6 +22,17 @@ def show_product(id):
   # if not job:
   #   return "Not Found", 404
   return jsonify(product)
+
+@app.route("/products")
+def add_product():
+  return render_template('product_page.html')
+
+@app.route("/products/form", methods=['post'])
+def product_form():
+  data = request.form
+  add_product_to_db(data)
+  return render_template('home.html')
+
 
 
 if __name__ == "__main__":

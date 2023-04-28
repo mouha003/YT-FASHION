@@ -28,3 +28,10 @@ def load_prod_from_db(id):
       return None
     else:
       return rows[0]._asdict()
+
+def add_product_to_db(data):
+  with engine.connect() as conn:
+    query = "INSERT INTO products (title, img, price, prod_condition, sale_price) \
+    VALUES ('%s', '%s', '%s', '%s', '%s')" % ( data['title'],data['img'],data['price'], data['condition'], data['sale_price'] )
+    
+    conn.execute(text(query))
